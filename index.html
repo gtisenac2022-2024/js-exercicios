@@ -5,180 +5,86 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS | Exercícios</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    
 </head>
 <body>
-    <h1>Atividade 1</h1>
-    <h2>Cálculo da média de notas:</h2>
-    <h2>1. Usando prompt:</h2>
+    <div class="main-content">
+        <div class="atv1">
 
-    <h3>Média da nota</h3>
-
-    <p>Nome do aluno:<span id="nome"></span></p>
-
-    <p>Nota 1:
-        <span id="nota1"></span>
-       
-    </p>
-
-    <p>Nota2:<span id="nota2"></span></p> 
-    <p>Média:<span id="media"></span></p>
-    <p>Situação:<span id="situacao"></span></p>
-    <br>
-    <h2>2. Usando input:</h2>
-    <br>
-    <h3>Média das notas:</h3>
-
-    <p>Nota 1:
-        <input type="text" id="nota1" size="10" class="pula">
-    </p>
-
-    <p>Nota 2: <input type="text" id="nota2" size="10" class="pula">
-            <br><br>
-                          
-    <button onclick="verificaSituacao()">Verificar situação do aluno</button>        
-
-    <p>Média: <span id="media"></span></p>
-
-    <p>Situação: <span id="situacao"></span></p>
-
-    <br>
-    <br>
-
-    <h1>Atividade 2</h1>
-    <h2>Cálculo de IMC:</h2>
-
-    <p id="par1">Olá!</p>
-
-    <p>Peso em kg:
-        <span id="pesoKg"></span>
-        
-    </p>
-
-    <p>Altura:<span id="alturaMetros"></span></p>
-    <p>IMC:<span id="imcTotal"></span></p>
-    <p>Situação:<span id="situacao"></span></p>
-
-    <h1>Atividade 3</h1>
-    <h2>AppendChild:</h2>
-    <ul id="myList"> 
-        <li>Maça</li>
-        <li>Uva</li>
-    </ul>
-    <p> Clique em "Append" para adicionar um item:</p> 
-    <button onclick="myFunction()">Append</button>
-
-
-    <script>
-    //JS DAS NOTAS PROMPT:
-        let nome = prompt ("Nome do aluno:");
-        
-        let n1 = parseFloat(prompt("nota 1?"));
-
-        let n2 = parseFloat(prompt("nota 2?"));
-
-        let media = (n1 + n2) / 2;
-        let situacao = "";
-        let cor = "";
+            <h1>Atividade 1</h1>
+            <h2>Cálculo da média de notas:</h2>
+            <h2>1. Usando prompt:</h2>
     
-
-        if (media >= 6) {
-            situacao = 'Aprovado';
-            cor = 'blue';
-        } else {
-            if (media >= 2 && media < 6) { 
-                situacao = 'Exame Final';
-                cor = 'orange';
-            } else {
-                situacao = 'Reprovado';
-                cor = 'red';
-            }
-        }
-
-        document.getElementById("nota1").innerHTML = n1;
-        document.getElementById("nota2").innerHTML = n2;
-        document.getElementById("media").innerHTML = media;
-        document.getElementById("situacao").innerHTML = situacao;
-        document.getElementById("situacao").style.color = cor; 
-        document.getElementById("nome").innerHTML = nome;
-
-// JS NOTAS DO INPUT:
-
-function verificaSituacao (){ // o parenteses é obrigatório colocar, mesmo não escrevendo nada dentro no function.
-        let n1 = parseFloat(document.getElementById("nota1").value);
-
-        let n2 = parseFloat(document.getElementById("nota2").value);
-
-        let media = (n1 + n2) / 2;
-        let situacao = "";
-        let cor = "";
+            <h3>Média da nota</h3>
     
+            <p>Nome do aluno: <span id="name"></span></p>
+            <p>Nota 1: <span id="grade1"></span></p>
+            <p>Nota2: <span id="grade2"></span></p> 
+            <p>Média: <span id="ovr"></span></p>
+            <p>Situação: <span id="situation"></span></p>
 
-        if (media >= 6) {
-            situacao = 'Aprovado';
-            cor = 'blue';
-        } else {
-            if (media >= 2 && media < 6) { //esse && = e/and; || = ou/or. Ou seja, no caso é 'se media é igual ou maior a 2 E media menor que 6, a situação é exame final.'
-                situacao = 'Exame Final';
-                cor = 'orange';
-            } else {
-                situacao = 'Reprovado';
-                cor = 'red';
-            }
-        }
-       
-        document.getElementById("media").innerHTML = media;
-        document.getElementById("situacao").innerHTML = situacao;
-        document.getElementById("situacao").style.color = cor;
+            <button onclick="verifySituationPrompt()" class="btn-verify" type="button" value="VERIFICAR">VERIFICAR</button>
 
+            <h2>2. Usando input:</h2>
+            <h3>Média das notas:</h3>
+    
+            <p>Nota 1: <input type="text" id="gradeInput1" size="10"></p>
+            <p>Nota 2: <input type="text" id="gradeInput2" size="10"><br>
+                                
+            <button onclick="verifySituationInput()" class="btn-verify">VERIFICAR</button>        
+    
+            <p>Média: <span id="ovrInput"></span></p>
+    
+            <p>Situação: <span id="situationInput"></span></p>
+    
+        </div>
 
-// JS DO IMC
-let peso = parseFloat(prompt("Peso em kg?"));
+        <div class="atv2">
+            <h1>Atividade 2</h1>
+            <h2>Cálculo de IMC:</h2>
+    
+            <p id="par1">Olá!</p>
+    
+            <p>Peso em kg: <span id="weight"></span></p>
+    
+            <p>Altura: <span id="height"></span></p>
+            <p>IMC: <span id="imcTotal"></span></p>
+            <p>Situação: 
+                <span id="situationImc"></span>
+                <span id="situationImcNormal"></span>
+                <span id="situationImcAlert"></span>
+                <span id="situationImcDanger"></span>
+            </p>
 
-let altura = parseFloat(prompt("Altura em metros?"));
-let imc = peso / (altura * altura);
-let situacao = "";
-let cor = "";
-if (imc < 17) {
-    situacao = "Muito abaixo do peso";
-    cor = "red";
-} else if (imc >= 17 && imc < 18.50) {
-    situacao = "Abaixo do peso";
-    cor = "orange";
-} else if (imc >= 18.50 && imc < 25) {
-    situacao = "Normal";
-    cor = "green";
-} else if (imc >= 25 && imc < 30) {
-    situacao = "Excesso de peso";
-    cor = "yellow";
-} else if (imc >= 30 && imc < 35) {
-    situacao = "Obesidade I";
-    cor = "orange";
-} else if (imc >= 35 && imc < 40) {
-    situacao = "Obesidade II";
-    cor = "purple";
-} else if (imc >= 40) {
-    situacao = "Obesidade III";
-    cor = "red";
-}
+            <button onclick="calculateImc()" class="btn-verify">VERIFICAR</button>
 
-document.getElementById("pesoKg").innerHTML = peso;
-document.getElementById("alturaMetros").innerHTML = altura;
-document.getElementById("imcTotal").innerHTML = imc;
-document.getElementById("situacao").innerHTML = situacao;
-document.getElementById("situacao").style.color = cor;
+        </div>
 
-// JS DO APPENDCHILD
-function myFunction() {
-       
-        const node = document.createElement("li");
-       
-        const textnode = document.createTextNode("Abacaxi");
-      
-        node.appendChild(textnode);
-       
-        document.getElementById("myList").appendChild(node);
-        }
-    </script>
+        <div class="atv3">
+            <h1>Atividade 3</h1>
+            <h2>AppendChild:</h2>
+            
+            <ul id="list">
+                <li>Coffee</li>
+                <li>Tea</li>
+                <li>Water</li>
+            </ul>
+        
+            <input type="text" id="entrada" value="">
+        
+            <button id="addbtn">Adicionar</button>
+            <input type="radio" name="color" id="red">
+            <label for="red">Vermelho</label>
+            <input type="radio" name="color" id="blue">
+            <label for="blue">Azul</label>
+            <input type="radio" name="color" id="yellow">
+            <label for="yellow">Amarelo</label>
+
+        </div>
+
+    <script src="./js/script.js"></script>
 
 </body>
 </html>

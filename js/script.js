@@ -31,52 +31,92 @@ function verifySituationPrompt(){
     document.getElementById("name").innerHTML = name;
 }
 
-function verifySituation(){    
-    // JS DO IMC
-    let peso = parseFloat(prompt("Peso em kg?"));
+function verifySituationInput(){
+    let n1 = parseFloat(document.getElementById("gradeInput1").value);
+    let n2 = parseFloat(document.getElementById("gradeInput2").value);
+    let ovr = (n1 + n2) / 2;
 
-    let altura = parseFloat(prompt("Altura em metros?"));
-    let imc = peso / (altura * altura);
     let situation = "";
     let color = "";
-    if (imc < 17) {
-    situation = "Muito abaixo do peso";
-    color = "red";
-    } else if (imc >= 17 && imc < 18.50) {
-    situation = "Abaixo do peso";
-    color = "orange";
-    } else if (imc >= 18.50 && imc < 25) {
-    situation = "Normal";
-    color = "green";
-    } else if (imc >= 25 && imc < 30) {
-    situation = "Excesso de peso";
-    color = "yellow";
-    } else if (imc >= 30 && imc < 35) {
-    situation = "Obesidade I";
-    color = "orange";
-    } else if (imc >= 35 && imc < 40) {
-    situation = "Obesidade II";
-    color = "purple";
-    } else if (imc >= 40) {
-    situation = "Obesidade III";
-    color = "red";
-    }
 
-    document.getElementById("pesoKg").innerHTML = peso;
-    document.getElementById("alturaMetros").innerHTML = altura;
-    document.getElementById("imcTotal").innerHTML = imc;
-    document.getElementById("situation").innerHTML = situation;
-    document.getElementById("situation").style.color = color;
+    if (ovr >= 6) {
+        situation = 'Aprovado';
+        color = 'blue';
+    } else {
+        if (ovr >= 2 && ovr < 6) {
+            situation = 'Exame Final';
+            color = 'orange';
+        } else {
+            situation = 'Reprovado';
+            color = 'red';
+        }
+    }
+   
+    document.getElementById("ovrInput").innerHTML = ovr;
+    document.getElementById("situationInput").innerHTML = situation;
+    document.getElementById("situationInput").style.color = color;
 }
 
-    // JS DO APPENDCHILD
-    function myFunction() {
+function calculateImc(){
+    let weight = parseFloat(prompt("Informe seu peso:"));
+    let height = parseFloat(prompt("Informe sua altura:"));
+    let situation = "";
+    let color = "";
+    let imc = weight / (height * height);
+
+    if(imc < 17){
+        situation = 'Muito abaixo do peso.';
+        color = 'red';
+    } else if(imc >= 17 && imc < 18.49){
+        situation = 'Abaixo do peso.';
+        color = 'orange';
+        
+    } else if(imc >= 17 && imc <= 24.99){
+        situation = 'Peso normal';
+        color = 'green';
+        
+    } else if(imc >= 25 && imc <= 29.99){
+        situation = 'Excesso de Peso'
+        color = 'orange';
+        
+    } else if(imc >= 30 && imc <= 34.99){
+        situation = 'Obesidade I'
+        color = 'red';
+        
+    } else if(imc >= 35 && imc <= 39.99){
+        situation = 'Obesidade II'
+        color = 'red';
+
+    } else if(imc >= 40 ){
+        situation = 'Obesidade III'
+        color = 'red';
+    }
+    console.log(imc);
+    console.log(weight);
+    console.log(height);
+    console.log(situation);
     
-    const node = document.createElement("li");
+    document.getElementById("weight").innerHTML = weight;
+    document.getElementById("height").innerHTML = height;
+    document.getElementById("imcTotal").innerHTML = imc;
+    document.getElementById("situationImc").innerHTML = situation;
+    document.getElementById("situationImc").style.color = color;
+}
+
+document.getElementById("addbtn").addEventListener("click", append);
+        
+function append(){
     
-    const textnode = document.createTextNode("Abacaxi");
+    let entrada = document.getElementById("entrada").value;
+    //criar elemento na lista
+    let node = document.createElement("li");
+    //var para o valor do elemento
+    let textnode = document.createTextNode(entrada);
     
     node.appendChild(textnode);
-    
-    document.getElementById("myList").appendChild(node);
+    document.getElementById("list").appendChild(node);
 }
+
+color = document.querySelector('input[name="color"]:checked');
+//cor do elemento
+document.getElementById("entrada").style.color = color;
