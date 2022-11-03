@@ -69,7 +69,7 @@
 
 
     <script>
-    //JS DAS NOTAS:
+    //JS DAS NOTAS PROMPT:
         let nome = prompt ("Nome do aluno:");
         
         let n1 = parseFloat(prompt("nota 1?"));
@@ -100,6 +100,37 @@
         document.getElementById("situacao").innerHTML = situacao;
         document.getElementById("situacao").style.color = cor; 
         document.getElementById("nome").innerHTML = nome;
+
+// JS NOTAS DO INPUT:
+
+function verificaSituacao (){ // o parenteses é obrigatório colocar, mesmo não escrevendo nada dentro no function.
+        let n1 = parseFloat(document.getElementById("nota1").value);
+
+        let n2 = parseFloat(document.getElementById("nota2").value);
+
+        let media = (n1 + n2) / 2;
+        let situacao = "";
+        let cor = "";
+    
+
+        if (media >= 6) {
+            situacao = 'Aprovado';
+            cor = 'blue';
+        } else {
+            if (media >= 2 && media < 6) { //esse && = e/and; || = ou/or. Ou seja, no caso é 'se media é igual ou maior a 2 E media menor que 6, a situação é exame final.'
+                situacao = 'Exame Final';
+                cor = 'orange';
+            } else {
+                situacao = 'Reprovado';
+                cor = 'red';
+            }
+        }
+       
+        document.getElementById("media").innerHTML = media;
+        document.getElementById("situacao").innerHTML = situacao;
+        document.getElementById("situacao").style.color = cor;
+
+
 // JS DO IMC
 let peso = parseFloat(prompt("Peso em kg?"));
 
