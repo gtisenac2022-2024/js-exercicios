@@ -7,9 +7,18 @@
     <title>JS | Exercícios</title>
 
     <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     
 </head>
 <body>
+
+    <header>
+        <p>ATIVIDADES</p>
+    </header>
+
     <div class="main-content">
         <div class="atv1">
 
@@ -18,26 +27,54 @@
             <h2>1. Usando prompt:</h2>
     
             <h3>Média da nota</h3>
-    
-            <p>Nome do aluno: <span id="name"></span></p>
-            <p>Nota 1: <span id="grade1"></span></p>
-            <p>Nota2: <span id="grade2"></span></p> 
-            <p>Média: <span id="ovr"></span></p>
-            <p>Situação: <span id="situation"></span></p>
 
-            <button onclick="verifySituationPrompt()" class="btn-verify" type="button" value="VERIFICAR">VERIFICAR</button>
+            <table class="table" border="1">
+                <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                    <th>Média</th>
+                    <th>Situação</th>
+                </tr>
 
+                <tr>
+                    <td><span id="name">--</span></td>
+                    <td><span id="grade1">--</span></td>
+                    <td><span id="grade2">--</span></td>
+                    <td><span id="ovr">--</span></td>
+                    <td><span id="situation">--</span></td>
+                </tr>
+            </table>
+
+            <input type="button" value="VERIFICAR" id="gradebtn" class="btn-verify">
+            
             <h2>2. Usando input:</h2>
-            <h3>Média das notas:</h3>
+            
+            <table class="table" border="1">
+                <tr>
+                    <th>Nome do Aluno</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                    <th>Média</th>
+                    <th>Situação</th>
+                </tr>
+
+                <tr>
+                    <td><span id="nameInputT">--</span></td>
+                    <td><span id="gradeInput1T">--</span></td>
+                    <td><span id="gradeInput2T">--</span></td>
+                    <td><span id="ovrInputT">--</span></td>
+                    <td><span id="situationInput">--</span></td>
+                </tr>
+            </table>
+            <div class="mediainput">
     
-            <p>Nota 1: <input type="text" id="gradeInput1" size="10"></p>
-            <p>Nota 2: <input type="text" id="gradeInput2" size="10"><br>
+                <p>Nome:<br><input type="text" name="name" id="nameInput" class="inputgrade"></p>
+                <p>Nota 1:<br><input type="text" id="gradeInput1" size="10" class="inputgrade"></p>
+                <p>Nota 2:<br><input type="text" id="gradeInput2" size="10" class="inputgrade"><br>
+                <input type="button" value="VERIFICAR" id="gradeinputbtn" class="btn-verify">
+            </div>
                                 
-            <button onclick="verifySituationInput()" class="btn-verify">VERIFICAR</button>        
-    
-            <p>Média: <span id="ovrInput"></span></p>
-    
-            <p>Situação: <span id="situationInput"></span></p>
     
         </div>
 
@@ -46,19 +83,24 @@
             <h2>Cálculo de IMC:</h2>
     
             <p id="par1">Olá!</p>
-    
-            <p>Peso em kg: <span id="weight"></span></p>
-    
-            <p>Altura: <span id="height"></span></p>
-            <p>IMC: <span id="imcTotal"></span></p>
-            <p>Situação: 
-                <span id="situationImc"></span>
-                <span id="situationImcNormal"></span>
-                <span id="situationImcAlert"></span>
-                <span id="situationImcDanger"></span>
-            </p>
 
-            <button onclick="calculateImc()" class="btn-verify">VERIFICAR</button>
+            <table class="table" border="1">
+                <tr>
+                    <th>Peso em Kg</th>
+                    <th>Altura</th>
+                    <th>IMC</th>
+                    <th>Situação</th>
+                </tr>
+
+                <tr>
+                    <td><span id="weight">--</span></td>
+                    <td><span id="height">--</span></td>
+                    <td><span id="imcTotal">--</span></td>
+                    <td><span id="situationImc">--</span></td>
+                </tr>
+            </table>
+
+            <input type="button" value="VERIFICAR" id="imcbtn" class="btn-verify">
 
         </div>
 
@@ -74,17 +116,18 @@
         
             <input type="text" id="entrada" value="">
         
-            <button id="addbtn">Adicionar</button>
-            <input type="radio" name="color" id="red">
+            <button id="appendbtn">Adicionar</button>
+
+            <input type="radio" name="colorradio" id="red">
             <label for="red">Vermelho</label>
-            <input type="radio" name="color" id="blue">
+            <input type="radio" name="colorradio" id="blue">
             <label for="blue">Azul</label>
-            <input type="radio" name="color" id="yellow">
+            <input type="radio" name="colorradio" id="yellow">
             <label for="yellow">Amarelo</label>
 
         </div>
 
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js"></script> 
 
 </body>
 </html>

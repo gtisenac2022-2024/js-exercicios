@@ -1,3 +1,5 @@
+//grades prompt function
+
 function verifySituationPrompt(){
     //JS DAS NOTAS:
     let name = prompt ("Nome do aluno:");
@@ -22,7 +24,7 @@ function verifySituationPrompt(){
             color = 'red';
         }
     }
-''
+
     document.getElementById("grade1").innerHTML = n1;
     document.getElementById("grade2").innerHTML = n2;
     document.getElementById("ovr").innerHTML = ovr;
@@ -31,7 +33,9 @@ function verifySituationPrompt(){
     document.getElementById("name").innerHTML = name;
 }
 
+//grades input function
 function verifySituationInput(){
+    let nameInpt = document.getElementById("nameInput").value;
     let n1 = parseFloat(document.getElementById("gradeInput1").value);
     let n2 = parseFloat(document.getElementById("gradeInput2").value);
     let ovr = (n1 + n2) / 2;
@@ -52,17 +56,22 @@ function verifySituationInput(){
         }
     }
    
-    document.getElementById("ovrInput").innerHTML = ovr;
+    document.getElementById("nameInputT").innerHTML = nameInpt;
+    document.getElementById("gradeInput1T").innerHTML = n1;
+    document.getElementById("gradeInput2T").innerHTML = n2;
+    document.getElementById("ovrInputT").innerHTML = ovr;
     document.getElementById("situationInput").innerHTML = situation;
     document.getElementById("situationInput").style.color = color;
 }
 
+//calculate imc function
 function calculateImc(){
     let weight = parseFloat(prompt("Informe seu peso:"));
     let height = parseFloat(prompt("Informe sua altura:"));
     let situation = "";
     let color = "";
     let imc = weight / (height * height);
+    imc = imc.toFixed(1);
 
     if(imc < 17){
         situation = 'Muito abaixo do peso.';
@@ -103,8 +112,7 @@ function calculateImc(){
     document.getElementById("situationImc").style.color = color;
 }
 
-document.getElementById("addbtn").addEventListener("click", append);
-        
+//append list items function
 function append(){
     
     let entrada = document.getElementById("entrada").value;
@@ -115,8 +123,20 @@ function append(){
     
     node.appendChild(textnode);
     document.getElementById("list").appendChild(node);
+
+
 }
 
-color = document.querySelector('input[name="color"]:checked');
-//cor do elemento
-document.getElementById("entrada").style.color = color;
+
+//call grade prompt function
+document.getElementById("gradebtn").addEventListener("click", verifySituationPrompt);
+
+//call grade input function
+document.getElementById("gradeinputbtn").addEventListener("click", verifySituationInput);
+
+//call imc function
+document.getElementById("imcbtn").addEventListener("click", calculateImc);
+
+//call append function
+document.getElementById("appendbtn").addEventListener("click", append);
+
