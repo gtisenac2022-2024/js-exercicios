@@ -116,13 +116,18 @@ function calculateImc(){
 function append(){
     
     let entrada = document.getElementById("entrada").value;
-    //criar elemento na lista
+    //create list element
     let node = document.createElement("li");
-    //var para o valor do elemento
+    //element var
     let textnode = document.createTextNode(entrada);
     
     node.appendChild(textnode);
     document.getElementById("list").appendChild(node);
+
+    //change created element color
+    let color = "";
+    color = document.querySelector('input[name="color"]:checked').value;
+    node.style.color = color;
 
 
 }

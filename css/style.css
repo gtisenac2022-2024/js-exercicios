@@ -34,7 +34,22 @@ p{
     padding: 7px;
 }
 
-ul{list-style: none;}
+ul{
+    list-style: none;
+    border: 1px solid #ddd;
+    padding: 0px;
+    margin-bottom: 1em;
+}
+
+li{
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul li:last-child {
+    border-bottom: none
+  }
 
 .table{
     margin: 1em;
@@ -81,4 +96,8 @@ ul{list-style: none;}
 
 .list-color{
     color: red;
+}
+
+.listinput{
+    margin-left: 8px;
 }
